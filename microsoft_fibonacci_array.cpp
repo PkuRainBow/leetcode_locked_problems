@@ -7,7 +7,7 @@
 #include <map>
 
 using namespace std;
-
+/*
 vector<int> fib;
 map<int, int> f_map;
 map<int, int> index_map;
@@ -45,7 +45,7 @@ int main() {
                 }
             }
             else {
-                /** previous fib count **/
+                //previous fib count
                 int pre = index_map[cur] - 1;
                 f_map[cur] += f_map[fib[pre]];
             }
@@ -64,5 +64,4 @@ int main() {
     cout << result << endl;
     return 0;
 }
-
-
+*/
