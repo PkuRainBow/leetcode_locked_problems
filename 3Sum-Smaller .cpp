@@ -15,3 +15,52 @@ Follow up:
 Could you solve it in O(n2) runtime?
 **/
 
+/** solution -1- **/
+class Solution {
+	int threeSumSmaller(vector<int>& nums, int target) {
+		sort(nums.begin(), nums.end());
+		const int n = nums.size();
+		int count = 0;
+		/** accumlate the triplet end with k **/
+		for (int k = 2; k < n; ++k) {
+			int i = 0, j = k - 1;
+			/** in fact this is 2-pointer problem find the target value = (target - nums[k]) **/
+			while (i < j) {
+				if (nums[i] + nums[j] + nums[k] >= target) {
+					--j;
+				} else {
+					/** the triplet contains nums[i] **/
+					count += j - i;
+					++i;
+				}
+			}
+		}
+		return count;
+	}
+}
+
+
+/** solution -2- **/
+/** this solution is more easy to understand as we refer the idea of the 2 pointers. We just loop to find all the possible combinations, 
+to avoid missing some cases, so we should clarify that we loop all the possible start index i, then loop all the possible left options, 
+then loop all the possible right index option, to accelerate, we just need to find the first right element satisfy the condition, then 
+we get "count + = right - left" **/
+class Solution {
+	int threeSumSmaller(vector<int>& nums, int target) {
+		sort(nums.begin(), nums.end());
+		const int n = nums.size();
+		int count = 0;
+		for (int i = 0; i < n - 2; i++) {
+			int left = i + 1, right = len - 1;
+			while (left < right) {
+				if (nums[i] + nums[left] + nums[right] < target) {
+					count += right - left;
+					left ++;
+				} else {
+					right --;
+				}
+			}
+		}
+		return count;
+	}
+}

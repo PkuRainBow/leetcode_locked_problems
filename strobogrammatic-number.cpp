@@ -67,6 +67,21 @@ public:
     }
 };
 
+/** non-recursive solution **/
+class Solution {
+public:
+    vector<string> findStrobogrammatic(int n) {
+        vector<string> one = {"0", "1", "8"}, two = {}, r = two;
+        if (n % 2 == 1)
+            r = one;
+        for (int i = (n%2) + 2; i <= n; i += 2)
+        {
+            
+        }
+        return helper(n, n);
+    }
+};
+
 
 
 /**
@@ -83,4 +98,6 @@ public:
 	Because the range might be a large number, the low and high numbers are represented as string.
 
 **/
+
+
 
